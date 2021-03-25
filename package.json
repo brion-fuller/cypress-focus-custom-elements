@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "es-dev-server --app-index index.html --node-resolve --watch --open",
+    "start": "es-dev-server --app-index index.html --node-resolve --watch",
     "test": "cypress open"
   },
   "author": "Brion L. Fuller II",
