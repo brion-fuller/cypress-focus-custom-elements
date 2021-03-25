@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cypress Focus Issue</title>
+  </head>
+  <body>
+    <script>
+      class MyInput extends HTMLElement {
+        shadowRoot;
+        constructor() {
+          super();
+          this.shadowRoot = this.attachShadow({ mode: "open" });
+          this.shadowRoot.innerHTML = "<input/>";
+
+          // When the custom element is focused delegate focus to the inner
+          // input.  This usually happens when form support is need and you need
+          // to redirect focus during validation.
+          this.addEventListener("focus", () => {
+            const i = this.shadowRoot.querySelector("input");
+            i.focus();
+          });
+        }
+        connectedCallback() {
+          this.setAttribute("tabindex", 0);
+        }
+      }
+      customElements.define("my-input", MyInput);
+    </script>
+    <my-input style="display: block" label="Hello There"></my-input>
+    <input type="text" />
+  </body>
+</html>

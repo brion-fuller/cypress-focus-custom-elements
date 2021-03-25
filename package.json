@@ -1,0 +1,17 @@
+{
+  "name": "cypresstesting",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "es-dev-server --app-index index.html --node-resolve --watch --open",
+    "test": "cypress open"
+  },
+  "author": "Brion L. Fuller II",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^6.8.0",
+    "es-dev-server": "^2.1.0"
+  }
+}
